@@ -1,0 +1,22 @@
+@import './common';
+.headerImg {
+    background: $baseColor;
+    padding: rem(15px);
+    text-align: center;
+}
+
+.listDate {
+    padding: rem(5px);
+    background: $baseFaceColor;
+    li,
+    span {
+        font-size: rem(18px);
+        color: $white;
+    }
+    li {
+        padding: rem(5px);
+        &:first-child {
+            border-right: rem(1px) solid $white;
+        }
+    }
+}

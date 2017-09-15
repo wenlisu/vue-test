@@ -141,9 +141,47 @@ body {
 header.mint-header {
     background-color: $header-background-color;
     font-size: rem(18px);
-    height:rem(50px);
+    height: rem(50px);
     .mint-header-title,
-    .mint-button-icon > i {
+    .mint-button-icon>i {
         color: $header-color;
     }
+    .mint-button-icon>i {
+        font-size: rem(16px);
+    }
+}
+
+.mint-cell-wrapper {
+    padding: 0 15px;
+}
+
+.flex {
+    display: flex;
+}
+
+.flexDirectionColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.flexDirectionRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex1 {
+    display: flex;
+    flex: 1;
+}
+
+.justifyContentCenter {
+    justify-content: center;
+}
+
+.alignItemsCenter {
+    align-items: center;
+}
+
+.alignSelfFlexEnd {
+    align-self: flex-end;
 }
