@@ -8,6 +8,8 @@
     </div>
 </template>
 <script>
+import { sentLogin } from '../service';
+import { mapState, mapMutations } from 'vuex'
 export default {
     name: 'login',
     data() {
@@ -17,8 +19,15 @@ export default {
         }
     },
     methods: {
-        handleClick() {
-
+        ...mapMutations([
+            'RECORD_USERINFO',
+        ]),
+        async handleClick() {
+            let requite = await sentLogin(this.username, this.password);
+            if (requite.status === 200 && requite.data.token && requite.data.userId) {
+                this.RECORD_USERINFO(requite.data);
+                this.$router.push('/index');
+            }
         }
     }
 }

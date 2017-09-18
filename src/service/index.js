@@ -2,13 +2,13 @@ import {
   getStore
 } from '../config/untils.js';
 import {
-  fetchPost,
-  fetchGet
-} from '../config/fetch.js';
+  axiosPost,
+  axiosGet
+} from '../config/axios.js';
 /**
  * 获取用户信息
  */
-export const getUser = () => fetchPost('/getUserInfo', {
+export const getUser = () => axiosPost('/api/getUserInfo', {
   userId: getStore('userId'),
   token: getStore('token')
 });
@@ -16,7 +16,7 @@ export const getUser = () => fetchPost('/getUserInfo', {
 /**
  * 登录
  */
-export const login = (phone, password) => fetchPost('/login', {
+export const sentLogin = (phone, password) => axiosPost('/api/login', {
   phone,
   password
 });

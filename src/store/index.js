@@ -5,7 +5,8 @@ import getters from './getters';
 import mutations from './mutations';
 Vue.use(Vuex);
 const state = {
-      userInfo: 0
+	userInfo: null,
+	login: false,
 };
 export default new Vuex.Store({
 	state,

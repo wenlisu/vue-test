@@ -1,3 +1,4 @@
+import { getUser } from '../service';
 import {
     GET_USERINFO
 } from './mutations_type.js';

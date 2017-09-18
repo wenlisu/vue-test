@@ -1,7 +1,8 @@
-async function fetchPost(postUrl, postDate) {
+import axios from 'axios';
+
+async function axiosPost(postUrl, postDate) {
     try {
-        let request = await fetch(postUrl, {
-            method: 'post',
+        let request = await axios.post(postUrl, {
             mode: "cors",
             headers: {
                 'Accept': 'application/json',
@@ -10,24 +11,22 @@ async function fetchPost(postUrl, postDate) {
             },
             body: JSON.stringify(postDate)
         });
-        let text = await request.text();
-        return JSON.parse(text);
+        return request;
     } catch (error) {
         console.log(`ERROR: ${error.stack}`);
     }
 };
-async function fetchGet(getUrl) {
+async function axiosGet(getUrl) {
     try {
-        let request = await fetch(getUrl, {
+        let request = await axios.get(getUrl, {
             method: 'GET'
         });
-        let text = await request.text();
-        return JSON.parse(text);
+        return request;
     } catch (error) {
         console.log(`ERROR: ${error.stack}`);
     }
 }
 export {
-    fetchPost,
-    fetchGet
+    axiosPost,
+    axiosGet
 }

@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex';
 import list from '@/components/list';
 export default {
     name: 'personalCenter',
@@ -44,12 +45,15 @@ export default {
         }
     },
     created: function() {
-        this.count()
+        this.getUserInfo();
     },
     methods: {
-        count() {
-            this.$store.commit('getUserInfo');
-            console.log(this.$store.state.userInfo);
+         ...mapMutations([
+            'GET_USERINFO',
+        ]),
+        async getUserInfo() {
+           let requite = await this.GET_USERINFO();
+           console.log('requite',requite);
         },
     },
     components: {
