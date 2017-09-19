@@ -6,8 +6,12 @@ import {
     setStore
   } from '../config/untils.js';
 export default {
-    [GET_USERINFO](state,action){
-        console.log(state,action);
+    [GET_USERINFO](state,info){
+        console.log('state',state);
+        state.personalImageUrl= info.personalImageUrl;
+        state.money=info.money;
+        state.myBicycle=info.myBicycle;
+        state.robot=info.robot;
     },
     // 记录用户信息
 	[RECORD_USERINFO](state, info) {

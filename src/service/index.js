@@ -8,9 +8,8 @@ import {
 /**
  * 获取用户信息
  */
-export const getUser = () => axiosPost('/api/getUserInfo', {
-  userId: getStore('userId'),
-  token: getStore('token')
+export const getUser = (userInfo) => axiosPost('/api/getUserInfo', {
+  ...userInfo
 });
 
 /**

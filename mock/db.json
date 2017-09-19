@@ -3,5 +3,11 @@
     {
       "userId": 1,
       "token": 888
+    },
+    "getUserInfo":{
+      "personalImageUrl": null,
+      "money": 30.00,
+      "myBicycle": 12,
+      "robot": 11
     }
 }

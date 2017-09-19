@@ -7,6 +7,10 @@ Vue.use(Vuex);
 const state = {
 	userInfo: null,
 	login: false,
+	personalImageUrl: null,
+	money: 0,
+	myBicycle: 0,
+	robot: 0,
 };
 export default new Vuex.Store({
 	state,

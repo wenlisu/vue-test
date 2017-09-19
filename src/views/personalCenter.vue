@@ -6,14 +6,14 @@
             </router-link>
         </mt-header>
         <div class="headerImg flex justifyContentCenter alignItemsCenter">
-            <mt-spinner type="double-bounce"></mt-spinner>
+            <img :src="personalImgUrl" alt="" class="personalImg">
         </div>
         <ul class="listDate flexDirectionRow">
             <li class="flex1 justifyContentCenter alignItemsCenter">我的单车
-                <span>0</span>
+                <span>{{myBicycleNumber}}</span>
             </li>
             <li class="flex1 justifyContentCenter alignItemsCenter">我的售纸机
-                <span>0</span>
+                <span>{{robotNumber}}</span>
             </li>
         </ul>
         <list :name="title1" :img="imgUrl1" :data="data1"></list>
@@ -24,12 +24,16 @@
 </template>
 
 <script>
+import { getUser } from '../service';
 import { mapState, mapMutations } from 'vuex';
 import list from '@/components/list';
 export default {
     name: 'personalCenter',
     data() {
         return {
+            personalImgUrl: '/static/images/asset-cash-icon1.png',
+            myBicycleNumber:0,
+            robotNumber:0,
             title1: '资产管理',
             imgUrl1: '/static/images/personal-center-icon1.png',
             data1: '0.00',
@@ -46,14 +50,22 @@ export default {
     },
     created: function() {
         this.getUserInfo();
+        this.data1 = this.money;
+        this.myBicycleNumber = this.myBicycle;
+        this.robotNumber = this.robot;
+    },
+    computed: {
+        ...mapState([
+            'userInfo','personalImageUrl','money','myBicycle','robot'
+        ]),
     },
     methods: {
-         ...mapMutations([
+        ...mapMutations([
             'GET_USERINFO',
         ]),
         async getUserInfo() {
-           let requite = await this.GET_USERINFO();
-           console.log('requite',requite);
+            console.log('this',this);
+            let requite = await getUser(this.userInfo);
         },
     },
     components: {
